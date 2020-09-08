@@ -51,6 +51,8 @@ type MediaFunction = <P extends object>(
   ...interpolations: Array<Interpolation<ThemedStyledProps<P, DefaultTheme>>>
 ) => FlattenInterpolation<ThemedStyledProps<P, DefaultTheme>>;
 
+// export default media
+
 /* Example
 const SomeDiv = styled.div`
   display: flex;

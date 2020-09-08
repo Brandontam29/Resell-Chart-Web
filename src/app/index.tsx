@@ -13,23 +13,25 @@ import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import { GlobalStyle } from 'styles/global-styles';
 
 import { HomePage } from './containers/HomePage/Loadable';
-import { NotFoundPage } from './components/NotFoundPage/Loadable';
+import { LoginPage } from './containers/LoginPage/Loadable';
+import { NotFoundPage } from './containers/NotFoundPage/Loadable';
 
-export function App() {
+export const App = () => {
   return (
     <BrowserRouter>
-      <Helmet
-        titleTemplate="%s - React Boilerplate"
-        defaultTitle="React Boilerplate"
-      >
-        <meta name="description" content="A React Boilerplate application" />
+      <Helmet titleTemplate="Resell Chart" defaultTitle="Resell Chart">
+        <meta
+          name="description"
+          content="Website to advertise a streetwear tracking application"
+        />
       </Helmet>
 
       <Switch>
         <Route exact path="/" component={HomePage} />
+        <Route exact path="/login" component={LoginPage} />
         <Route component={NotFoundPage} />
       </Switch>
       <GlobalStyle />
     </BrowserRouter>
   );
-}
+};

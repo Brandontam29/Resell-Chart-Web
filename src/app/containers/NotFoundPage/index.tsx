@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components/macro';
-import { P } from './P';
 import { Helmet } from 'react-helmet-async';
 
-export function NotFoundPage() {
+export const NotFoundPage = () => {
   return (
     <>
       <Helmet>
@@ -22,7 +21,14 @@ export function NotFoundPage() {
       </Wrapper>
     </>
   );
-}
+};
+
+const P = styled.p`
+  font-size: 1rem;
+  line-height: 1.5;
+  color: black;
+  margin: 0.625rem 0 1.5rem 0;
+`;
 
 const Wrapper = styled.div`
   height: 100vh;
