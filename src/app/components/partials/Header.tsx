@@ -1,65 +1,148 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components/macro';
 
-import { blue } from '../../../styles/commons/variables';
-const Header = () => {
+import BurgerIcon from '../icons/Burger';
+
+import { deep_sky_blue, family_title } from '../../../styles/commons/variables';
+import { font_big, reset_button } from '../../../styles/commons/placeholders';
+import { media } from '../../../styles/commons/media';
+
+const Header: React.FC = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
   const routes = [
-    { name: 'Buy Now', link: 'buy-now' },
-    { name: 'Features', link: 'features' },
-    { name: 'How to Use', link: 'how-to-use' },
+    { name: 'Pricing', link: 'pricing' },
     { name: 'FAQ', link: 'faq' },
-    { name: 'Help', link: 'help' },
+    { name: 'Contact', link: 'contact' },
   ];
 
+  console.log(menuOpen);
   return (
     <Container>
-      <LogoContainer>
-        <Image>image</Image>
-      </LogoContainer>
+      <Logo>
+        <Link to="/">Resell Chart</Link>
+      </Logo>
 
-      <RoutesContainer>
-        {routes.map(route => (
-          <Link key={route.name + route.link} to={route.link}>
-            <Route>{route.name}</Route>
-          </Link>
-        ))}
-        <Dashboard>
-          <Link to={'dashboard'}>Dashboard</Link>
-        </Dashboard>
-      </RoutesContainer>
+      <LinksContainer menuOpen={menuOpen}>
+        <BurgerButton onClick={() => setMenuOpen(!menuOpen)}>
+          <Burger />
+        </BurgerButton>
+        <List>
+          {routes.map(route => (
+            <Route key={route.name + route.link}>
+              <Link to={route.link}>{route.name}</Link>
+            </Route>
+          ))}
+          <Dashboard>
+            <Link to="dashboard">Dashboard</Link>
+          </Dashboard>
+        </List>
+      </LinksContainer>
     </Container>
   );
 };
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: row;
+// const unit = css`10px`;
 
-  padding: 20px 10px;
+const Container = styled.header`
+  position: relative;
+
+  width: 100%;
+
+  margin-bottom: 30px;
+  padding: 15px 10px;
+
+  ${media.normal`
+    display: flex;
+    flex-direction: row;
+  `}
 `;
 
-const LogoContainer = styled.div`
-  flex-grow: 1;
-`;
-
-const Image = styled.div`
+const Logo = styled.div`
   display: inline-block;
+  
+
+  ${font_big}
+  font-family: ${family_title};
+
+  ${media.normal`
+    flex-grow: 1;
+  `}
 `;
 
-const RoutesContainer = styled.div`
+const BurgerButton = styled.button`
+  ${reset_button};
+
+  display: block;
+
+  width: 33px;
+  height: auto;
+
+  ${media.normal`
+    appearance: none;
+    display:none;
+  `}
+`;
+
+const Burger = styled(BurgerIcon)`
+  width: 100%;
+  height: auto;
+`;
+
+const LinksContainer = styled.nav<{ menuOpen: boolean }>`
+  ${({ menuOpen }) => {
+    if (menuOpen) {
+      return 'transform: translateX(0);';
+    }
+
+    return 'transform: translateX(calc(100% - 50px));';
+  }}
+
+  display:flex;
+  flex-direction: column;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  padding: 10px;
+
+  background-color: rgba(255, 255, 255, 0.05);
+
+  ${media.normal`
+    display: block;
+    position: static;
+
+    padding: 0;
+
+    transform: none;
+    background-color: unset;
+  `};
+`;
+
+const List = styled.ul`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
+
+  margin-left: 50px;
+
+  ${media.normal`
+    flex-direction: row;
+
+    margin-left: 0;
+  `}
 `;
 
-const Route = styled.div`
-  padding: 20px 10px;
-  border: 1px dotted #fff;
+const Route = styled.li`
+  padding: 0 30px;
 `;
 
-const Dashboard = styled.div`
-  padding: 10px 20px;
-  border-radius: 50%;
-  background-color: ${blue};
+const Dashboard = styled.li`
+  margin-left: 10px;
+  padding: 15px 30px;
+  border-radius: 26px;
+  background-color: ${deep_sky_blue};
 `;
+
 export default Header;

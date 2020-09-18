@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-
+import { font_normal, font_large, font_larger, font_big } from './placeholders';
 const general = css`
   a {
     color: inherit;
@@ -16,6 +16,22 @@ const general = css`
       color: inherit;
       text-decoration: none;
     }
+  }
+
+  h1 {
+    ${font_big}
+  }
+
+  h2 {
+    ${font_larger}
+  }
+
+  h3 {
+    ${font_large}
+  }
+
+  h4 {
+    ${font_normal}
   }
 `;
 

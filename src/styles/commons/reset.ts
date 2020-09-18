@@ -152,6 +152,10 @@ const reset = css`
   a > img {
     display: block;
   }
+
+  a {
+    text-decoration: none;
+  }
 `;
 
 export default reset;

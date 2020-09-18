@@ -19,6 +19,7 @@ import {
 // Update your breakpoints if you want
 export const sizes = {
   small: 600,
+  normal: 800,
   medium: 1024,
   large: 1440,
   xlarge: 1920,
@@ -50,15 +51,3 @@ type MediaFunction = <P extends object>(
     | InterpolationFunction<ThemedStyledProps<P, DefaultTheme>>,
   ...interpolations: Array<Interpolation<ThemedStyledProps<P, DefaultTheme>>>
 ) => FlattenInterpolation<ThemedStyledProps<P, DefaultTheme>>;
-
-// export default media
-
-/* Example
-const SomeDiv = styled.div`
-  display: flex;
-  ....
-  ${media.medium`
-    display: block
-  `}
-`;
-*/
