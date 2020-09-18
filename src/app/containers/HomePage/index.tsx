@@ -1,29 +1,16 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import styled from 'styled-components/macro';
-import { Link } from 'react-router-dom';
 
-import { deep_sky_blue } from '../../../styles/commons/variables';
-import {
-  page_inner,
-  image,
-  font_large,
-} from '../../../styles/commons/placeholders';
-
-import screens3 from '../../../images/3screens.png';
+import {} from '../../../styles/commons/variables';
+import { page_inner } from '../../../styles/commons/placeholders';
 
 import Slogan from '../../components/sections/Slogan';
 import Features from '../../components/sections/Features';
 import Faq from '../../components/sections/Faq';
+// import Kenosis from '../../components/sections/Kenosis';
 
 export const HomePage: React.FC = () => {
-  const faq = [
-    { heading: 'Analytics', description: '' },
-    { heading: 'Profit Caluculator', description: '' },
-    { heading: 'Mobile App', description: '' },
-    { heading: 'Sort & FIlter', description: '' },
-  ];
-
   return (
     <>
       <Helmet>

@@ -1,14 +1,27 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components/macro';
+import { css, CSSProp } from 'styled-components';
 
 import BurgerIcon from '../icons/Burger';
 
-import { deep_sky_blue, family_title } from '../../../styles/commons/variables';
-import { font_big, reset_button } from '../../../styles/commons/placeholders';
+import {
+  deep_sky_blue,
+  cinder,
+  family_title,
+} from '../../../styles/commons/variables';
+import {
+  font_big,
+  reset_button,
+  links,
+} from '../../../styles/commons/placeholders';
 import { media } from '../../../styles/commons/media';
 
-const Header: React.FC = () => {
+interface Props {
+  className?: CSSProp<CSSProp>;
+}
+
+const Header: React.FC<Props> = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const routes = [
     { name: 'Pricing', link: 'pricing' },
@@ -24,9 +37,6 @@ const Header: React.FC = () => {
       </Logo>
 
       <LinksContainer menuOpen={menuOpen}>
-        <BurgerButton onClick={() => setMenuOpen(!menuOpen)}>
-          <Burger />
-        </BurgerButton>
         <List>
           {routes.map(route => (
             <Route key={route.name + route.link}>
@@ -38,6 +48,9 @@ const Header: React.FC = () => {
           </Dashboard>
         </List>
       </LinksContainer>
+      <BurgerButton onClick={() => setMenuOpen(!menuOpen)}>
+        <Burger />
+      </BurgerButton>
     </Container>
   );
 };
@@ -45,29 +58,22 @@ const Header: React.FC = () => {
 // const unit = css`10px`;
 
 const Container = styled.header`
+  z-index: 100;
   position: relative;
+  display: flex;
+  flex-direction: row;
 
   width: 100%;
 
   margin-bottom: 30px;
   padding: 15px 10px;
-
-  ${media.normal`
-    display: flex;
-    flex-direction: row;
-  `}
 `;
 
 const Logo = styled.div`
-  display: inline-block;
-  
+  flex-grow: 1;
 
   ${font_big}
   font-family: ${family_title};
-
-  ${media.normal`
-    flex-grow: 1;
-  `}
 `;
 
 const BurgerButton = styled.button`
@@ -92,26 +98,40 @@ const Burger = styled(BurgerIcon)`
 const LinksContainer = styled.nav<{ menuOpen: boolean }>`
   ${({ menuOpen }) => {
     if (menuOpen) {
-      return 'transform: translateX(0);';
+      return css`
+        transform: translateX(0);
+        box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.5);
+      `;
     }
 
-    return 'transform: translateX(calc(100% - 50px));';
+    return 'transform: translateY(calc(-100%));';
   }}
 
   display:flex;
   flex-direction: column;
 
   position: absolute;
+
+  width: 100%;
   top: 0;
   right: 0;
 
-  padding: 10px;
+  padding: 25px 0;
 
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: ${cinder};
+
+  transition-property: transform;
+  transition-duration: 300ms;
+  transition-timing-function: ease-out;
 
   ${media.normal`
     display: block;
     position: static;
+
+    width: unset;
+    height: unset;
+    top: unset;
+    right: unset;
 
     padding: 0;
 
@@ -125,17 +145,19 @@ const List = styled.ul`
   flex-direction: column;
   align-items: center;
 
-  margin-left: 50px;
-
   ${media.normal`
     flex-direction: row;
-
-    margin-left: 0;
   `}
 `;
 
 const Route = styled.li`
-  padding: 0 30px;
+  ${links}
+  margin-bottom: 1em;
+
+  ${media.normal`
+    margin-bottom: 0;
+    padding: 0 30px;
+  `}
 `;
 
 const Dashboard = styled.li`

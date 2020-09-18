@@ -8,6 +8,7 @@ export const white = css`#fff`;
 export const cinder = css`#20232C`;
 
 export const deep_sky_blue = css`#0ab9e6`;
+export const astronaut_blue = css`#214556`;
 
 export const red = css`#fd3d3f`;
 export const green = css`#44ac39`;

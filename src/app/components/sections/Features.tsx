@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components/macro';
 
 import { line_height_text } from '../../../styles/commons/variables';
-import { image } from '../../../styles/commons/placeholders';
+import { image, card_shadow } from '../../../styles/commons/placeholders';
 import { media } from '../../../styles/commons/media';
 
 import calculator from '../../../images/calculator.png';
@@ -61,7 +61,7 @@ const Container = styled.section`
   width: 100%;
 `;
 
-const Heading = styled.div`
+const Heading = styled.header`
   width: 100%;
   text-align: center;
 `;
@@ -79,6 +79,8 @@ const FeaturesContainer = styled.div`
 `;
 
 const Feature = styled.div`
+  ${card_shadow}
+
   display: flex;
   flex-direction: row;
   flex-grow: 1;

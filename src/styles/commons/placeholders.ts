@@ -31,6 +31,69 @@ export const fullscreen = css`
   height: 100%;
 `;
 
+/*
+ * Shadow
+ */
+
+export const card_shadow = css`
+  box-shadow: 8px 8px 20px 0px rgba(0, 0, 0, 0.3);
+`;
+
+export const image_shadow = css`
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.4));
+`;
+
+export const links = css`
+  a {
+    position: relative;
+    overflow: hidden;
+
+    display: inline-block;
+    vertical-align: baseline;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+
+    padding-bottom: 3px;
+
+    &:before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      left: 51%;
+      right: 51%;
+      bottom: 0;
+      background: currentColor;
+      height: 2px;
+
+      transition-property: left, right;
+      transition-duration: 200ms;
+      transition-timing-function: ease-out;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      &:before {
+        left: 0;
+        right: 0;
+      }
+    }
+  }
+`;
+
+export const small_links = css`
+  ${links}
+
+  a {
+    &:before {
+      height: 1px;
+    }
+  }
+`;
+
+/**
+ * Inner Maximum
+ */
+
 export const page_inner = css`
   margin-left: 10px;
   margin-right: 10px;
@@ -41,7 +104,7 @@ export const page_inner = css`
   `}
 
   ${media.medium`
-    max-width: 740px;
+    max-width: 960px;
     margin-left: auto;
     margin-right: auto;
   `}
@@ -61,7 +124,7 @@ export const footer_inner = css`
   `}
 
   ${media.medium`
-    max-width: 900px;
+    max-width: 980px;
     margin-left: auto;
     margin-right: auto;
   `}

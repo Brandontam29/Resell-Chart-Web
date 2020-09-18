@@ -7,8 +7,12 @@ import styled from 'styled-components/macro';
 import Discord from '../icons/Discord';
 import Twitter from '../icons/Twitter';
 
-// import { blue, family_title } from '../../../styles/commons/variables';
-import { footer_inner, font_small } from '../../../styles/commons/placeholders';
+import {} from '../../../styles/commons/variables';
+import {
+  footer_inner,
+  font_small,
+  small_links,
+} from '../../../styles/commons/placeholders';
 import { media } from '../../../styles/commons/media';
 
 const Footer: React.FC = () => {
@@ -87,6 +91,7 @@ const Container = styled.footer`
     flex-direction: row;
 
     li {
+      ${small_links}
       margin-right: 15px;
 
       :last-child {

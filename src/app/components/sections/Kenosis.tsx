@@ -3,56 +3,69 @@ import styled from 'styled-components/macro';
 import { Link } from 'react-router-dom';
 
 import { line_height_text } from '../../../styles/commons/variables';
-import { links, card_shadow } from '../../../styles/commons/placeholders';
+import { links } from '../../../styles/commons/placeholders';
 import { media } from '../../../styles/commons/media';
 
-const Faq: React.FC = () => {
+const Kenosis: React.FC = () => {
   const questions = [
     {
-      question: 'How much does it cost?',
-      answer:
-        'Resell Chart retails for $3 CAD/month. During that month, users get free updates and support through our discord.',
+      question: 'Abigail',
+      traits: 'Witty, Artistic, Quirky',
     },
     {
-      question: 'Are group-buys offered?',
-      answer:
-        'Yes we offer groupbuys. Please contact us if you are an owner, admin or authorized personnel for running groupbuys.',
+      question: 'Amelia',
+      traits: 'Radiant, Thoughtful, Reliable, Mediator',
     },
     {
-      question: 'Can I share account with a friend',
-      answer:
-        'Each account has a maximum of 1 active sessions. More active session purchases will be available later during development.',
+      question: 'Annika',
+      traits: 'Creative, Joyful, Humorous, Hardworking',
     },
     {
-      question: 'Is there a Website version of the application?',
-      answer:
-        "We currently do not have a web version. We're slowly developping towards a website.",
+      question: 'Celia',
+      traits: 'Responsible, Attentive, Insightful',
     },
     {
-      question: 'Will there be restock?',
-      answer:
-        'Resell Chart typically restocks once every 1-2 weeks. Anytime we have a planned restock, we will tweeet it out and annonce it in our discord.',
+      question: 'Dalia',
+      traits: 'Funny, Sportive, Cooperative',
     },
     {
-      question: 'How can I report a bug?',
-      answer:
-        "User's who are experiencing bugs or glitches can report them on our discord.",
+      question: 'David',
+      traits: 'Loyal, Independent, Strong, Observant',
+    },
+    {
+      question: 'Enoch',
+      traits: 'Friendly, Punctual, Passionate, Sportive',
+    },
+    {
+      question: 'Issac',
+      traits: 'Respectful, Intelligent, Devoted',
+    },
+    {
+      question: 'Yana',
+      traits:
+        "I didn't have the oppotunity to know you better but I am sure that you are Interesting.",
+    },
+    {
+      question: 'Yasmina',
+      traits: 'Intelligent, Self-reliant, Social consciousness',
+    },
+    {
+      question: 'Cherry',
+      traits: 'Reasonable, Caring, Easy going, Good listener',
     },
   ];
   return (
     <Container>
       <Heading>
-        <h2>F.A.Q.</h2>
-        <p>
-          <Link to="faq">Have more question?</Link>
-        </p>
+        <h2>Kenosis</h2>
+        <p></p>
       </Heading>
       <QuestionsContainer>
         {questions.map(card => (
-          <Question key={card.question + card.answer}>
+          <Question key={card.question + card.traits}>
             <Text>
               <h4>{card.question}</h4>
-              <p>{card.answer}</p>
+              <p>{card.traits}</p>
             </Text>
           </Question>
         ))}
@@ -91,8 +104,6 @@ const QuestionsContainer = styled.div`
 `;
 
 const Question = styled.div`
-  ${card_shadow}
-
   display: flex;
   flex-direction: row;
   flex-grow: 1;
@@ -126,7 +137,7 @@ const Question = styled.div`
       margin-right: 30px;
     }
 
-    :nth-last-of-type(-n+2) {
+    :nth-last-of-type(-n+1) {
       margin-bottom: 0;
     }
   `}
@@ -142,4 +153,4 @@ const Text = styled.div`
   }
 `;
 
-export default Faq;
+export default Kenosis;

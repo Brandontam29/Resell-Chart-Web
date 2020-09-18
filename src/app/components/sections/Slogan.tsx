@@ -3,7 +3,11 @@ import styled from 'styled-components/macro';
 import { Link } from 'react-router-dom';
 
 import { deep_sky_blue } from '../../../styles/commons/variables';
-import { image, font_large } from '../../../styles/commons/placeholders';
+import {
+  image,
+  font_large,
+  image_shadow,
+} from '../../../styles/commons/placeholders';
 
 import screens3 from '../../../images/3screens.png';
 
@@ -29,7 +33,7 @@ const Container = styled.section`
   text-align: center;
 `;
 
-const Heading = styled.div``;
+const Heading = styled.header``;
 
 const Start = styled.div`
   margin-bottom: 40px;
@@ -47,6 +51,11 @@ const StartButton = styled.div`
 
 const Screens3 = styled.img`
   ${image}
+  ${image_shadow}
+
+  width: 100%;
+  max-width: 740px;
+  margin: 0 auto;
 `;
 
 export default Slogan;
