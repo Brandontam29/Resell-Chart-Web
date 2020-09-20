@@ -40,8 +40,7 @@ const Inner = styled.main`
       margin-bottom: 15px;
     }
 
-    h1 + p,
-    h2 + p {
+    header {
       margin-bottom: 40px;
     }
   }

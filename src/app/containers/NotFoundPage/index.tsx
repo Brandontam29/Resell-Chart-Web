@@ -6,7 +6,7 @@ export const NotFoundPage = () => {
   return (
     <>
       <Helmet>
-        <title>404 Page Not Found</title>
+        <title>Resell Chart - 404 Page Not Found</title>
         <meta name="description" content="Page not found" />
       </Helmet>
       <Wrapper>
@@ -31,7 +31,6 @@ const P = styled.p`
 `;
 
 const Wrapper = styled.div`
-  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;

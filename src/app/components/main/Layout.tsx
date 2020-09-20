@@ -11,19 +11,19 @@ interface Props {
 const Layout: React.FC<Props> = ({ children }) => {
   return (
     <Container>
-      <Header className={headerCss} />
+      <Header />
       {children}
       <Footer />
     </Container>
   );
 };
 
-const headerCss = css`
-  z-index: 100;
-`;
-
 const Container = styled.div`
   position: relative;
+
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100%;
 `;
 
 export default Layout;

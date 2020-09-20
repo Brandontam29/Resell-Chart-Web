@@ -63,11 +63,6 @@ const Faq: React.FC = () => {
 
 const Container = styled.section`
   width: 100%;
-
-  h2 {
-    margin-bottom
-    text-align: center;
-  }
 `;
 
 const Heading = styled.header`

@@ -2,8 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components/macro';
 
-// import discord from '../../../images/discord.png';
-// import twitter from '../../../images/twitter.png';
 import Discord from '../icons/Discord';
 import Twitter from '../icons/Twitter';
 
@@ -72,6 +70,10 @@ const Container = styled.footer`
   display: flex;
   flex-direction: row;
 
+  width: 100%;
+  grid-row-start: 3;
+  grid-row-end: 4;
+
   padding: 50px 0 15px;
 
   div {
@@ -101,7 +103,7 @@ const Container = styled.footer`
   }
 
   ${media.small`
-    padding-bottom: 30px;
+    padding-bottom: 25px;
   `}
 `;
 

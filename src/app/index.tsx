@@ -7,6 +7,7 @@ import { GlobalStyle } from 'styles/global-styles';
 import { HomePage } from './containers/HomePage/Loadable';
 import { PricingPage } from './containers/PricingPage/Loadable';
 import { FaqPage } from './containers/FaqPage/Loadable';
+import { DashboardPage } from './containers/DashboardPage/Loadable';
 import { NotFoundPage } from './containers/NotFoundPage/Loadable';
 
 import Layout from './components/main/Layout';
@@ -33,6 +34,11 @@ export const App = () => {
       <Switch>
         <Route exact path="/pricing" render={() => pageWrapper(PricingPage)} />
         <Route exact path="/faq" render={() => pageWrapper(FaqPage)} />
+        <Route
+          exact
+          path="/dashboard"
+          render={() => pageWrapper(DashboardPage)}
+        />
         <Route exact path="/" render={() => pageWrapper(HomePage)} />
         <Route path="*" render={() => pageWrapper(NotFoundPage)} />
       </Switch>
