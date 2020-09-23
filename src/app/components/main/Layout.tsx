@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/macro';
-import { css } from 'styled-components';
+// import { css } from 'styled-components';
 
 import Header from '../partials/Header';
 import Footer from '../partials/Footer';

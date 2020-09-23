@@ -18,6 +18,10 @@ export const DashboardPage = () => {
     ],
   };
 
+  const options = {
+    responsive: true,
+  };
+
   return (
     <>
       <Helmet>
@@ -34,7 +38,7 @@ export const DashboardPage = () => {
             <p>Are you really making money?</p>
           </Heading>
 
-          <Doughnut data={doughnutData} />
+          <Doughnut data={doughnutData} options={options} />
         </DashboardContainer>
       </Inner>
     </>

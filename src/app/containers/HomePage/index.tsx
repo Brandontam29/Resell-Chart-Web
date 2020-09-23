@@ -7,8 +7,8 @@ import { page_inner } from '../../../styles/commons/placeholders';
 
 import Slogan from '../../components/sections/Slogan';
 import Features from '../../components/sections/Features';
+import Dashboard from '../../components/sections/Dashboard';
 import Faq from '../../components/sections/Faq';
-// import Kenosis from '../../components/sections/Kenosis';
 
 export const HomePage: React.FC = () => {
   return (
@@ -21,8 +21,10 @@ export const HomePage: React.FC = () => {
         />
       </Helmet>
       <Inner>
+        <Dashboard />
         <Slogan />
         <Features />
+
         <Faq />
       </Inner>
     </>
