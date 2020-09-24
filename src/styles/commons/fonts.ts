@@ -5,7 +5,7 @@ const fonts_path = '../../fonts';
 const fonts = css`
 
   @font-face {
-    font-family: 'Gobold-Regular';
+    font-family: 'Gobold';
     src: url('${fonts_path}/Gobold-Regular.otf') format('opentype');
   }
 `;

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Line } from 'react-chartjs-2';
 
 import {
-  carnation_pink,
+  // carnation_pink,
   red,
   // white,
   deep_sky_blue,
