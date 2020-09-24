@@ -1,12 +1,12 @@
 import { css } from 'styled-components';
-
-const fonts_path = '../../fonts';
+import Gobold from '../../fonts/Gobold-Regular.otf';
 
 const fonts = css`
-
   @font-face {
     font-family: 'Gobold';
-    src: url('${fonts_path}/Gobold-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    src: url(${Gobold}) format('opentype');
   }
 `;
 

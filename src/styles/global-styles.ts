@@ -10,6 +10,7 @@ export const GlobalStyle = createGlobalStyle`
   ${fonts};
   ${reset};
   ${general};
+  
 
   html,
   body {
