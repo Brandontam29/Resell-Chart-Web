@@ -40,7 +40,7 @@ export const card_shadow = css`
 `;
 
 export const image_shadow = css`
-  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.4));
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.65));
 `;
 
 export const links = css`

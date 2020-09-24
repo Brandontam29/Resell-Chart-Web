@@ -21,10 +21,9 @@ export const HomePage: React.FC = () => {
         />
       </Helmet>
       <Inner>
-        <Dashboard />
         <Slogan />
         <Features />
-
+        <Dashboard />
         <Faq />
       </Inner>
     </>
