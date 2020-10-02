@@ -1,26 +1,28 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 import { Helmet } from 'react-helmet-async';
-import { Doughnut } from 'react-chartjs-2';
+// import { Doughnut } from 'react-chartjs-2';
 
 import {} from '../../../styles/commons/variables';
 import { footer_inner } from '../../../styles/commons/placeholders';
 
-export const DashboardPage = () => {
-  const doughnutData = {
-    labels: ['Red', 'Green', 'Yellow'],
-    datasets: [
-      {
-        data: [300, 50, 100],
-        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
-        hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
-      },
-    ],
-  };
+import LineGraph from '../../components/partials/LineGraph';
 
-  const options = {
-    responsive: true,
-  };
+export const DashboardPage: React.FC = () => {
+  // const doughnutData = {
+  //   labels: ['Red', 'Green', 'Yellow'],
+  //   datasets: [
+  //     {
+  //       data: [300, 50, 100],
+  //       backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+  //       hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+  //     },
+  //   ],
+  // };
+
+  // const options = {
+  //   responsive: true,
+  // };
 
   return (
     <>
@@ -32,13 +34,15 @@ export const DashboardPage = () => {
         />
       </Helmet>
       <Inner>
+        <Heading>
+          <h1>Dashboard</h1>
+          <p>Are you really making money?</p>
+        </Heading>
+        <section>
+          <LineGraph />
+        </section>
         <DashboardContainer>
-          <Heading>
-            <h1>Dashboard</h1>
-            <p>Are you really making money?</p>
-          </Heading>
-
-          <Doughnut data={doughnutData} options={options} />
+          {/* <Doughnut data={doughnutData} options={options} /> */}
         </DashboardContainer>
       </Inner>
     </>
@@ -46,25 +50,22 @@ export const DashboardPage = () => {
 };
 
 const Inner = styled.main`
-  ${footer_inner};
+  ${footer_inner}
+  width: 100%;
 
   section {
     margin-bottom: 90px;
-
-    h1,
-    h2 {
-      margin-bottom: 15px;
-    }
-
-    header {
-      margin-bottom: 40px;
-    }
   }
 `;
 
 const Heading = styled.header`
   width: 100%;
+  margin-bottom: 40px;
   text-align: center;
+
+  h1 {
+    margin-bottom: 15px;
+  }
 `;
 
 const DashboardContainer = styled.section`

@@ -18,6 +18,9 @@ import {
   big_mobile,
   big_desktop,
   big_wide,
+  biggest_mobile,
+  biggest_desktop,
+  biggest_wide,
 } from './variables';
 import { media } from './media';
 
@@ -34,7 +37,6 @@ export const fullscreen = css`
 /*
  * Shadow
  */
-
 export const card_shadow = css`
   box-shadow: 8px 8px 20px 0px rgba(0, 0, 0, 0.3);
 `;
@@ -93,7 +95,6 @@ export const small_links = css`
 /**
  * Inner Maximum
  */
-
 export const page_inner = css`
   margin-left: 10px;
   margin-right: 10px;
@@ -212,6 +213,18 @@ export const font_big = css`
 
   ${media.xlarge`
     font-size: ${big_wide};
+  `}
+`;
+
+export const font_biggest = css`
+  font-size: ${biggest_mobile};
+
+  ${media.medium`
+    font-size: ${biggest_desktop};
+  `}
+
+  ${media.xlarge`
+    font-size: ${biggest_wide};
   `}
 `;
 

@@ -2,11 +2,16 @@ import React from 'react';
 import styled from 'styled-components/macro';
 import { Link } from 'react-router-dom';
 
-import { line_height_text } from '../../../styles/commons/variables';
-import { links, card_shadow } from '../../../styles/commons/placeholders';
-import { media } from '../../../styles/commons/media';
+import { line_height_text } from '../../../../styles/commons/variables';
+import { links, card_shadow } from '../../../../styles/commons/placeholders';
+import { media } from '../../../../styles/commons/media';
 
-const Faq: React.FC = () => {
+interface Props {
+  forwardRef?: any;
+  className?: undefined;
+}
+
+const Faq: React.FC<Props> = ({ forwardRef, className }) => {
   const questions = [
     {
       question: 'How much does it cost?',
@@ -40,7 +45,7 @@ const Faq: React.FC = () => {
     },
   ];
   return (
-    <Container>
+    <Container ref={forwardRef} className={className}>
       <Heading>
         <h2>F.A.Q.</h2>
         <p>

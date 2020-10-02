@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components/macro';
-import { css, CSSProp } from 'styled-components';
-
-import BurgerIcon from '../icons/Burger';
+import { css } from 'styled-components';
 
 import {
   deep_sky_blue,
@@ -11,28 +9,35 @@ import {
   family_title,
 } from '../../../styles/commons/variables';
 import {
+  font_normal,
   font_big,
   reset_button,
   links,
 } from '../../../styles/commons/placeholders';
 import { media } from '../../../styles/commons/media';
 
+// import useOnScreen from '../../../hooks/useOnScreen';
+import BurgerIcon from '../icons/Burger';
+
 interface Props {
-  className?: CSSProp<CSSProp>;
+  forwardRef?: any;
+  sticky: Boolean;
+  className?: undefined;
 }
 
-const Header: React.FC<Props> = () => {
+const Header: React.FC<Props> = ({ forwardRef, sticky, className }) => {
   const [menuOpen, setMenuOpen] = useState(false);
+
   const routes = [
     { name: 'Pricing', link: 'pricing' },
     { name: 'FAQ', link: 'faq' },
     { name: 'Contact', link: 'contact' },
   ];
+  console.log(sticky);
 
-  console.log(menuOpen);
   return (
-    <Container>
-      <Logo>
+    <Container ref={forwardRef} className={className}>
+      <Logo sticky={sticky}>
         <Link to="/">Resell Chart</Link>
       </Logo>
 
@@ -43,7 +48,7 @@ const Header: React.FC<Props> = () => {
               <Link to={route.link}>{route.name}</Link>
             </Route>
           ))}
-          <Dashboard>
+          <Dashboard sticky={sticky}>
             <Link to="dashboard">Dashboard</Link>
           </Dashboard>
         </List>
@@ -58,22 +63,28 @@ const Header: React.FC<Props> = () => {
 // const unit = css`10px`;
 
 const Container = styled.header`
-  z-index: 100;
-  position: relative;
   display: flex;
   flex-direction: row;
-
-  width: 100%;
-
-  margin-bottom: 30px;
-  padding: 15px 10px;
+  align-items: center;
+  padding: 0 10px;
 `;
 
-const Logo = styled.div`
+const Logo = styled.div<{ sticky: Boolean }>` 
   flex-grow: 1;
-
   ${font_big}
   font-family: ${family_title};
+  
+ ${({ sticky }) =>
+   sticky
+     ? css`
+         ${font_normal}
+       `
+     : ''}
+
+  transition-delay: 0;
+  transition-duration: 200ms;
+  transition-property: height font-size;
+  transition-timing-function: linear;
 `;
 
 const BurgerButton = styled.button`
@@ -160,11 +171,21 @@ const Route = styled.li`
   `}
 `;
 
-const Dashboard = styled.li`
+const Dashboard = styled.li<{ sticky: Boolean }>`
   margin-left: 10px;
+
   padding: 15px 30px;
-  border-radius: 26px;
+  vertical-align: middle;
+
+  border-radius: 25px;
   background-color: ${deep_sky_blue};
+
+  ${({ sticky }) =>
+    sticky
+      ? css`
+          padding: 7px 20px;
+        `
+      : ''}
 `;
 
 export default Header;

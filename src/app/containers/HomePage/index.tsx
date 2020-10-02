@@ -1,16 +1,27 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import styled from 'styled-components/macro';
+import { css } from 'styled-components';
 
 import {} from '../../../styles/commons/variables';
 import { page_inner } from '../../../styles/commons/placeholders';
+import { fadeIn } from '../../../styles/commons/animations';
 
-import Slogan from '../../components/sections/Slogan';
-import Features from '../../components/sections/Features';
-import Dashboard from '../../components/sections/Dashboard';
-import Faq from '../../components/sections/Faq';
+import Slogan from './sections/Slogan';
+import Features from './sections/Features';
+import Dashboard from './sections/Dashboard';
+import Faq from './sections/Faq';
+
+import { useEntered } from '../../../hooks/useEntered';
 
 export const HomePage: React.FC = () => {
+  const refFeatures = useRef();
+  const refDashboard = useRef();
+  const refFaq = useRef();
+  const appearFeatures = useEntered(refFeatures, '0px');
+  const appearDashboard = useEntered(refDashboard, '0px');
+  const appearFaq = useEntered(refFaq, '0px');
+
   return (
     <>
       <Helmet>
@@ -21,10 +32,10 @@ export const HomePage: React.FC = () => {
         />
       </Helmet>
       <Inner>
-        <Slogan />
-        <Features />
-        <Dashboard />
-        <Faq />
+        <SloganStyle />
+        <FeaturesStyle forwardRef={refFeatures} appear={appearFeatures} />
+        <DashboardStyle forwardRef={refDashboard} appear={appearDashboard} />
+        <FaqStyle forwardRef={refFaq} appear={appearFaq} />
       </Inner>
     </>
   );
@@ -45,4 +56,34 @@ const Inner = styled.main`
       margin-bottom: 40px;
     }
   }
+`;
+const SloganStyle = styled(Slogan)`
+  ${fadeIn}
+`;
+
+const FeaturesStyle = styled(Features)<{ appear: Boolean }>`
+  ${({ appear }) =>
+    appear
+      ? css`
+          ${fadeIn}
+        `
+      : css``};
+`;
+
+const DashboardStyle = styled(Dashboard)<{ appear: Boolean }>`
+  ${({ appear }) =>
+    appear
+      ? css`
+          ${fadeIn}
+        `
+      : css``};
+`;
+
+const FaqStyle = styled(Faq)<{ appear: Boolean }>`
+  ${({ appear }) =>
+    appear
+      ? css`
+          ${fadeIn}
+        `
+      : css``};
 `;

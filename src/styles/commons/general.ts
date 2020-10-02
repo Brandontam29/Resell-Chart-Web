@@ -1,5 +1,11 @@
 import { css } from 'styled-components';
-import { font_normal, font_large, font_larger, font_big } from './placeholders';
+import {
+  font_large,
+  font_larger,
+  font_big,
+  font_biggest,
+} from './placeholders';
+
 const general = css`
   a {
     color: inherit;
@@ -19,19 +25,19 @@ const general = css`
   }
 
   h1 {
-    ${font_big}
+    ${font_biggest}
   }
 
   h2 {
-    ${font_larger}
+    ${font_big}
   }
 
   h3 {
-    ${font_large}
+    ${font_larger}
   }
 
   h4 {
-    ${font_normal}
+    ${font_large}
   }
 `;
 

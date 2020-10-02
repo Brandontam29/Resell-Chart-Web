@@ -1,20 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components/macro';
-import { Link } from 'react-router-dom';
-import { Line as GraphLine } from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2';
 
-import {
-  // carnation_pink,
-  red,
-  // white,
-  deep_sky_blue,
-} from '../../../styles/commons/variables';
+import { red, deep_sky_blue } from '../../../styles/commons/variables';
 import { card_shadow } from '../../../styles/commons/placeholders';
 import {} from '../../../styles/commons/media';
 
 import useWindowSize from '../../../hooks/useWindowSize';
 
-export const Dashboard: React.FC = () => {
+export const LineGraph: React.FC = () => {
   const [maintainAspectRatio, setMaintainAspectRatio] = useState(false);
   const { width } = useWindowSize();
 
@@ -83,27 +77,11 @@ export const Dashboard: React.FC = () => {
   }, [width, setMaintainAspectRatio]);
   return (
     <Container>
-      <Heading>
-        <h1>
-          <Link to="dashboard">Dashboard</Link>
-        </h1>
-        <p>See your money go up</p>
-      </Heading>
-      <GraphContainer>
-        <GraphLine data={data} options={options} />
-      </GraphContainer>
+      <Line data={data} options={options} />
     </Container>
   );
 };
-
-const Container = styled.section`
-  width: 100%;
-  text-align: center;
-`;
-
-const Heading = styled.header``;
-
-const GraphContainer = styled.div`
+const Container = styled.div`
   padding: 15px;
 
   min-height: 300px;
@@ -112,4 +90,4 @@ const GraphContainer = styled.div`
 
   ${card_shadow}
 `;
-export default Dashboard;
+export default LineGraph;

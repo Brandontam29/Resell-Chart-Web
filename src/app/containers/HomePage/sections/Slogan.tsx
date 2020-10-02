@@ -2,18 +2,23 @@ import React from 'react';
 import styled from 'styled-components/macro';
 import { Link } from 'react-router-dom';
 
-import { deep_sky_blue } from '../../../styles/commons/variables';
+import { deep_sky_blue } from '../../../../styles/commons/variables';
 import {
   image,
   font_large,
   image_shadow,
-} from '../../../styles/commons/placeholders';
+} from '../../../../styles/commons/placeholders';
 
-import screens3 from '../../../images/3screens.png';
+import screens3 from '../../../../images/3screens.png';
 
-export const Slogan: React.FC = () => {
+interface Props {
+  forwardRef?: any;
+  className?: undefined;
+}
+
+export const Slogan: React.FC<Props> = ({ forwardRef, className }) => {
   return (
-    <Container>
+    <Container ref={forwardRef} className={className}>
       <Heading>
         <h1>Track your Sales</h1>
         <p>Simple, Organized, Efficient</p>

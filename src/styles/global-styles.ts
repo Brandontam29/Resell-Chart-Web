@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components/macro';
 
 import fonts from './commons/fonts';
 import reset from './commons/reset';

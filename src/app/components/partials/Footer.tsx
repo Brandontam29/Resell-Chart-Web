@@ -13,14 +13,13 @@ import {
 } from '../../../styles/commons/placeholders';
 import { media } from '../../../styles/commons/media';
 
-const Footer: React.FC = () => {
-  // const blocks = [
-  //   { heading: 'Media', images: [discord, twitter], links: [] },
-  //   { heading: 'Legal', images: [], links: [{'help'}] },
-  // ];
-
+interface Props {
+  forwardRef?: { current: any };
+  className?: undefined | string;
+}
+const Footer: React.FC<Props> = ({ forwardRef, className }) => {
   return (
-    <Container>
+    <Container ref={forwardRef} className={className}>
       <div>
         <h4>Media</h4>
         <nav>

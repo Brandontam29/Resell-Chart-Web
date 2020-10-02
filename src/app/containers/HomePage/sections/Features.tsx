@@ -1,16 +1,21 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-import { line_height_text } from '../../../styles/commons/variables';
-import { image, card_shadow } from '../../../styles/commons/placeholders';
-import { media } from '../../../styles/commons/media';
+import { line_height_text } from '../../../../styles/commons/variables';
+import { image, card_shadow } from '../../../../styles/commons/placeholders';
+import { media } from '../../../../styles/commons/media';
 
-import calculator from '../../../images/calculator.png';
-import sort from '../../../images/sort.png';
-import phone from '../../../images/phone.png';
-import increase from '../../../images/increase.png';
+import calculator from '../../../../images/calculator.png';
+import sort from '../../../../images/sort.png';
+import phone from '../../../../images/phone.png';
+import increase from '../../../../images/increase.png';
 
-export const Features: React.FC = () => {
+interface Props {
+  forwardRef?: any;
+  className?: any;
+}
+
+export const Features: React.FC<Props> = ({ forwardRef, className }) => {
   const features = [
     {
       image: increase,
@@ -37,7 +42,7 @@ export const Features: React.FC = () => {
   ];
 
   return (
-    <Container>
+    <Container ref={forwardRef} className={className}>
       <Heading>
         <h2>Features</h2>
         <p>Track your progression</p>
